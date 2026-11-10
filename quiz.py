@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import random
-#instaleaza pachetul tkinter dacă esti in linux cu comanda:     sudo apt update && sudo apt install -y python3-tk
+#instaleaza pachetul tkinter dacă esti in linux cu comanda: sudo apt update && sudo apt install -y python3-tk
 # Baza de date cu intrebarile si raspunsurile extrase din fisier
 QUESTIONS_DB = [
     # ==================== CURSUL 1 ====================
@@ -9,59 +9,64 @@ QUESTIONS_DB = [
         "curs": "Cursul 1",
         "tip": "Quiz",
         "q": "1. Adevărat sau fals: trebuie să achiziționați Unity Pro pentru a crea jocuri.",
-        "correct": "False (Fals)",
-        "options": ["True (Adevărat)", "False (Fals)"]
+        "correct": "Fals",
+        "options": ["Adevărat", "Fals"]
     },
     {
         "curs": "Cursul 1",
         "tip": "Quiz",
         "q": "2. Care vizualizare ne permite să manipulăm vizual obiectele dintr-o scenă?",
-        "correct": "The Scene view",
-        "options": ["The Scene view", "The Game view", "The Inspector view", "The Hierarchy view"]
+        "correct": "Scene",
+        "options": ["Scene", "Hierarchy", "Inspector", "Game"]
     },
     {
         "curs": "Cursul 1",
         "tip": "Quiz",
         "q": "3. Adevărat sau fals: ar trebui să mutați întotdeauna fișierele dvs. active în Unity și să nu utilizați exploratorul de fișiere al sistemului de operare.",
-        "correct": "True (Adevărat)",
-        "options": ["True (Adevărat)", "False (Fals)"]
+        "correct": "Adevărat",
+        "options": ["Adevărat", "Fals"]
     },
     {
         "curs": "Cursul 1",
         "tip": "Quiz",
         "q": "4. Adevărat sau fals: Când creați un proiect nou, ar trebui să includeți fiecare activ pe care îl credeți minunat.",
-        "correct": "False (Fals)",
-        "options": ["True (Adevărat)", "False (Fals)"]
+        "correct": "Fals",
+        "options": ["Adevărat", "Fals"]
     },
     {
         "curs": "Cursul 1",
         "tip": "Quiz",
         "q": "5. Ce mod introduceți în vizualizarea Scenă atunci când țineți apăsat butonul din dreapta al mouse-ului?",
-        "correct": "Flythrough mode",
-        "options": ["Flythrough mode", "Orbit mode", "Pan mode", "Play mode"]
+        "correct": "Flythrough, pentru deplasare liberă prin scena 3D.",
+        "options": [
+            "Orbit, pentru rotire în jurul pivotului din scena 3D.",
+            "Focus, pentru încadrarea selecției din scena 3D.",
+            "Pan, pentru deplasare în planul camerei din scena 3D.",
+            "Flythrough, pentru deplasare liberă prin scena 3D."
+        ]
     },
     {
         "curs": "Cursul 1",
         "tip": "Q&A",
         "q": "Q&A: Sunt activele (assets) și obiectele de joc (GameObjects) la fel?",
-        "correct": "Nu chiar. Activele au un fișier sau grup de fișiere pe hard disk, în timp ce un obiect de joc nu are. Un activ poate conține sau nu un obiect de joc.",
+        "correct": "Un asset este o resursă a proiectului. Un GameObject este o entitate care poate folosi resurse în scenă.",
         "options": [
-            "Nu chiar. Activele au un fișier sau grup de fișiere pe hard disk, în timp ce un obiect de joc nu are. Un activ poate conține sau nu un obiect de joc.",
-            "Da, sunt complet identice și termenii pot fi folosiți interschimbabil.",
-            "Nu. Obiectele de joc sunt salvate direct pe hard disk ca fișiere separate, iar activele există doar în memoria RAM.",
-            "Da, dar numai în proiectele 3D."
+            "Un asset este un obiect inactiv din Hierarchy. Același obiect devine GameObject când este activat.",
+            "Un asset este o instanță din scenă. Un GameObject este fișierul din Project din care provine instanța.",
+            "Un asset este o componentă atașată în Inspector. Un GameObject este fișierul în care se salvează componenta.",
+            "Un asset este o resursă a proiectului. Un GameObject este o entitate care poate folosi resurse în scenă."
         ]
     },
     {
         "curs": "Cursul 1",
         "tip": "Q&A",
         "q": "Q&A: Există o mulțime de controale și opțiuni diferite. Va trebui să le memorez imediat pe toate?",
-        "correct": "Deloc. Cele mai multe controale și opțiuni vor fi deja setate la o stare implicită care acoperă majoritatea situațiilor.",
+        "correct": "Începi cu setările implicite și înveți controalele pe măsură ce le folosești.",
         "options": [
-            "Deloc. Cele mai multe controale și opțiuni vor fi deja setate la o stare implicită care acoperă majoritatea situațiilor.",
-            "Da, Unity nu funcționează dacă nu configurați manual fiecare control înainte de rulare.",
-            "Doar controalele avansate de iluminare și fizică trebuie memorate din prima zi.",
-            "Da, deoarece Unity nu are valori implicite pentru componente."
+            "Reconfigurezi toate comenzile la început, ca să le poți folosi la fel în fiecare proiect.",
+            "Începi cu setările implicite și înveți controalele pe măsură ce le folosești.",
+            "Memorezi întâi scurtăturile, fiindcă aceleași acțiuni sunt indisponibile în meniuri.",
+            "Înveți întâi toate opțiunile Inspectorului, fiindcă setările implicite sunt doar pentru previzualizare."
         ]
     },
 
@@ -70,74 +75,74 @@ QUESTIONS_DB = [
         "curs": "Cursul 2",
         "tip": "Quiz",
         "q": "1. Ce înseamnă D în 2D și 3D?",
-        "correct": "Dimensiune.",
-        "options": ["Dimensiune.", "Direcție.", "Distanță.", "Dinamică."]
+        "correct": "Dimensiune",
+        "options": ["Diagonală", "Dimensiune", "Direcție", "Distanță"]
     },
     {
         "curs": "Cursul 2",
         "tip": "Quiz",
         "q": "2. Câte transformări există?",
-        "correct": "Trei.",
-        "options": ["Trei.", "Două.", "Patru.", "Șase."]
+        "correct": "Trei",
+        "options": ["Trei", "Șase", "Patru", "Două"]
     },
     {
         "curs": "Cursul 2",
         "tip": "Quiz",
         "q": "3. Adevărat sau Fals: Unity nu are obiecte încorporate și trebuie să le creați.",
-        "correct": "Fals. Unity vă oferă multe obiecte încorporate.",
+        "correct": "Fals. Unity include primitive precum cubul, sfera și capsula.",
         "options": [
-            "Fals. Unity vă oferă multe obiecte încorporate.",
-            "Adevărat. Trebuie să modelați fiecare obiect într-un program extern.",
-            "Adevărat, cu excepția camerei principale.",
-            "Fals. Unity are doar un singur obiect încorporat (Cubul)."
+            "Adevărat. Primitivele trebuie importate dintr-un pachet extern.",
+            "Adevărat. Meniul GameObject creează doar obiecte fără geometrie.",
+            "Fals. Cubul este singura primitivă disponibilă direct în editor.",
+            "Fals. Unity include primitive precum cubul, sfera și capsula."
         ]
     },
     {
         "curs": "Cursul 2",
         "tip": "Quiz",
         "q": "4. Dacă doriți ca un obiect să fie „așezat pe partea sa” 5 unități la dreapta poziției sale actuale, ați roti obiectul și apoi îl translatați sau translatați obiectul și apoi îl rotiți?",
-        "correct": "Translație și apoi rotație.",
+        "correct": "Îl deplasezi 5 unități pe dreapta locală inițială, apoi îl rotești pe o parte.",
         "options": [
-            "Translație și apoi rotație.",
-            "Rotație și apoi translație.",
-            "Scalare și apoi rotație.",
-            "Ordinea operațiilor este irelevantă."
+            "Îl rotești în jurul axei verticale, apoi îl deplasezi 5 unități pe dreapta locală nouă.",
+            "Îl rotești pe o parte, apoi îl deplasezi 5 unități pe dreapta locală nouă.",
+            "Îl deplasezi 5 unități pe dreapta locală inițială, apoi îl rotești în jurul axei verticale.",
+            "Îl deplasezi 5 unități pe dreapta locală inițială, apoi îl rotești pe o parte."
         ]
     },
     {
         "curs": "Cursul 2",
         "tip": "Q&A",
         "q": "Q&A: Este important să învățați atât conceptele 2D, cât și cele 3D?",
-        "correct": "Da. Chiar și jocurile care sunt în întregime 3D utilizează încă unele dintre conceptele 2D la nivel tehnic.",
+        "correct": "Da, un joc 3D poate folosi concepte 2D pentru interfață și 3D pentru lumea de joc.",
         "options": [
-            "Da. Chiar și jocurile care sunt în întregime 3D utilizează încă unele dintre conceptele 2D la nivel tehnic.",
-            "Nu. Jocurile 3D nu folosesc niciodată coordonate sau elemente 2D.",
-            "Doar dacă realizați jocuri exclusiv pentru mobil.",
-            "Nu, conceptele 2D sunt învechite și eliminate din Unity."
+            "Da, conceptele 2D sunt necesare pentru ca un joc 3D să poată folosi o cameră în perspectivă.",
+            "Nu, interfața unui joc 3D trebuie să folosească aceeași geometrie 3D ca lumea de joc.",
+            "Da, un joc 3D poate folosi concepte 2D pentru interfață și 3D pentru lumea de joc.",
+            "Nu, conceptele 2D se aplică doar dacă întreaga scenă este randată în mod ortografic."
         ]
     },
     {
         "curs": "Cursul 2",
         "tip": "Q&A",
         "q": "Q&A: Ar trebui să învăț să folosesc toate obiectele de joc încorporate imediat?",
-        "correct": "Nu neapărat. Există multe obiecte de joc și poate fi copleșitor să încercați să le învățați imediat.",
+        "correct": "Înveți întâi obiectele utile în scena ta și le studiezi pe celelalte când ai nevoie de ele.",
         "options": [
-            "Nu neapărat. Există multe obiecte de joc și poate fi copleșitor să încercați să le învățați imediat.",
-            "Da, este obligatoriu să le folosiți pe toate în fiecare scenă.",
-            "Da, deoarece sunt doar două obiecte de joc încorporate.",
-            "Nu, obiectele încorporate nu trebuie folosite niciodată."
+            "Înveți întâi obiectele utile în scena ta și le studiezi pe celelalte când ai nevoie de ele.",
+            "Înveți toate obiectele încorporate înainte de a construi prima scenă funcțională.",
+            "Înveți întâi fiecare tip de obiect în 3D, apoi poți folosi obiectele dintr-un proiect 2D.",
+            "Înveți întâi variantele de coliziune ale tuturor obiectelor, apoi poți exersa transformările."
         ]
     },
     {
         "curs": "Cursul 2",
         "tip": "Q&A",
         "q": "Q&A: Care este cel mai bun mod de a vă familiariza cu transformările?",
-        "correct": "Practică. Continuă să lucrezi cu ele; în cele din urmă, vor deveni destul de naturale.",
+        "correct": "Modifici separat poziția, rotația și scara și compari efectele pe axele locale și globale.",
         "options": [
-            "Practică. Continuă să lucrezi cu ele; în cele din urmă, vor deveni destul de naturale.",
-            "Memorarea tabelelor matematice de rotație fără a deschide editorul.",
-            "Evitarea folosirii mouse-ului în Scene View.",
-            "Scrierea de shadere personalizate pentru fiecare obiect."
+            "Exersezi doar scalarea uniformă, apoi folosești aceleași reguli pentru deplasare și rotire.",
+            "Exersezi doar în modul Global, unde axele obiectului se rotesc odată cu acesta.",
+            "Modifici separat poziția, rotația și scara și compari efectele pe axele locale și globale.",
+            "Modifici doar poziția și deduci din aceleași valori cum se schimbă rotația și scara."
         ]
     },
 
@@ -146,84 +151,84 @@ QUESTIONS_DB = [
         "curs": "Cursul 3",
         "tip": "Quiz",
         "q": "1. Adevărat sau fals: Din cauza naturii lor simple, pătratele alcătuiesc ochiuri (meshes) în modele.",
-        "correct": "Fals, ochiurile de plasă sunt alcătuite din triunghiuri.",
+        "correct": "Fals. Fețele unui mesh obișnuit sunt randate ca triunghiuri.",
         "options": [
-            "Fals, ochiurile de plasă sunt alcătuite din triunghiuri.",
-            "Adevărat, pătratele sunt baza tuturor modelelor 3D.",
-            "Fals, ochiurile de plasă sunt alcătuite din cercuri.",
-            "Adevărat, dar numai pentru personaje."
+            "Adevărat. Fețele pătrate sunt păstrate de motor ca unități de randare.",
+            "Adevărat. Fețele pătrate sunt obligatorii pentru toate modelele texturate.",
+            "Fals. Fețele unui mesh obișnuit sunt randate ca poligoane pentagonale.",
+            "Fals. Fețele unui mesh obișnuit sunt randate ca triunghiuri."
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Quiz",
         "q": "2. Ce formate de fișier acceptă Unity pentru modelele 3D?",
-        "correct": "fișierele .fbx, .dae, .3ds, .dxf și .obj.",
+        "correct": ".fbx, .dae, .3ds, .dxf, .obj (în versiunea din curs)",
         "options": [
-            "fișierele .fbx, .dae, .3ds, .dxf și .obj.",
-            "doar fișierele .png, .jpg și .bmp.",
-            "fișierele .mp3, .wav și .ogg.",
-            "doar fișierele .exe și .dll."
+            ".fbx, .ply, .3ds, .dxf, .obj (în versiunea din curs)",
+            ".fbx, .dae, .3ds, .dxf, .obj (în versiunea din curs)",
+            ".fbx, .dae, .3ds, .off, .obj (în versiunea din curs)",
+            ".fbx, .dae, .stl, .dxf, .obj (în versiunea din curs)"
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Quiz",
         "q": "3. Adevărat sau Fals: Numai modelele plătite pot fi descărcate din Unity Assets Store.",
-        "correct": "Fals. Există mai multe modele gratuite.",
+        "correct": "Fals. Magazinul oferă atât modele gratuite, cât și modele contra cost.",
         "options": [
-            "Fals. Există mai multe modele gratuite.",
-            "Adevărat. Toate activele din magazin sunt contra cost.",
-            "Adevărat, modelele gratuite sunt disponibile doar în Unity Pro.",
-            "Fals. În Unity Asset Store nu există modele 3D, ci doar sunete."
+            "Fals. Magazinul oferă atât modele gratuite, cât și modele contra cost.",
+            "Adevărat. Secțiunea gratuită include doar unelte, fără modele 3D.",
+            "Fals. Modelele plătite devin gratuite dacă folosești Unity Personal.",
+            "Adevărat. Modelele listate ca gratuite sunt doar previzualizări."
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Quiz",
         "q": "4. Explicați relația dintre texturi, shadere și materiale.",
-        "correct": "Materialele conțin texturi și shadere. Shaders dictează proprietățile care pot fi setate de material și modul în care materialul devine prestat (randat).",
+        "correct": "Materialul alege shaderul și îi transmite valori și texturi. Shaderul stabilește cum se calculează aspectul suprafeței.",
         "options": [
-            "Materialele conțin texturi și shadere. Shaders dictează proprietățile care pot fi setate de material și modul în care materialul devine prestat (randat).",
-            "Texturile conțin materiale și shadere, iar materialele sunt simple imagini 2D.",
-            "Shaderele sunt fișiere audio, iar materialele controlează doar coliziunile fizice.",
-            "Nu există nicio relație între ele; se aplică independent direct pe cameră."
+            "Materialul stabilește singur calculele de iluminare. Shaderul oferă doar imaginea care este aplicată pe suprafață.",
+            "Shaderul alege materialul și extrage din el geometria. Textura stabilește cum răspunde suprafața la lumină.",
+            "Materialul alege shaderul și îi transmite valori și texturi. Shaderul stabilește cum se calculează aspectul suprafeței.",
+            "Textura alege shaderul și îi transmite valorile materialului. Shaderul stabilește cum se importă fișierul imaginii."
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Q&A",
         "q": "Q&A: Voi mai putea face jocuri dacă nu sunt artist?",
-        "correct": "Absolut. Folosind resurse online gratuite și Unity Asset Store, puteți găsi diverse opere de artă pentru a le pune în jocurile dvs.",
+        "correct": "Da, poți folosi resurse grafice create de alții, respectând licențele acestora.",
         "options": [
-            "Absolut. Folosind resurse online gratuite și Unity Asset Store, puteți găsi diverse opere de artă pentru a le pune în jocurile dvs.",
-            "Nu, Unity blochează compilarea jocului dacă nu desenați singur modelele.",
-            "Doar jocuri text fără nicio interfață grafică.",
-            "Nu, deoarece Unity Asset Store este accesibil doar artiștilor certificați."
+            "Da, dar poți folosi resursele create de alții doar ca referință pentru grafica proprie.",
+            "Da, poți folosi resurse grafice create de alții, respectând licențele acestora.",
+            "Da, dacă înlocuiești resursele gratuite cu resurse proprii înainte de publicare.",
+            "Da, dacă importi grafica din Unity Asset Store, singura sursă acceptată pentru resurse externe."
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Q&A",
         "q": "Q&A: Va trebui să știu să folosesc toate shaderele încorporate?",
-        "correct": "Nu neapărat. Multe shaders sunt foarte situaționale. Începeți cu cele de bază și învățați mai multe dacă proiectul o cere.",
+        "correct": "Înveți întâi shaderele de bază și le aprofundezi pe cele cerute de efectele proiectului.",
         "options": [
-            "Nu neapărat. Multe shaders sunt foarte situaționale. Începeți cu cele de bază și învățați mai multe dacă proiectul o cere.",
-            "Da, fiecare material trebuie să folosească toate shaderele simultan.",
-            "Nu, deoarece Unity nu are shadere încorporate.",
-            "Da, altfel modelele 3D nu pot fi importate în proiect."
+            "Înveți întâi shaderele de bază și le aprofundezi pe cele cerute de efectele proiectului.",
+            "Înveți toate shaderele compatibile înainte de a aplica primul material.",
+            "Înveți doar shaderul implicit, care acoperă toate tipurile de suprafețe și efecte.",
+            "Înveți câte un shader pentru fiecare format de imagine pe care îl imporți."
         ]
     },
     {
         "curs": "Cursul 3",
         "tip": "Q&A",
         "q": "Q&A: Dacă există active de artă plătite în Unity Asset Store, asta înseamnă că pot vinde propriile mele active?",
-        "correct": "Ba da. Dacă puteți crea active de înaltă calitate (nu doar de artă), le puteți vinde cu siguranță în magazin.",
+        "correct": "Da, poți publica resurse proprii ca publisher dacă pachetul respectă cerințele magazinului.",
         "options": [
-            "Ba da. Dacă puteți crea active de înaltă calitate (nu doar de artă), le puteți vinde cu siguranță în magazin.",
-            "Nu, doar compania Unity are voie să vândă active în Asset Store.",
-            "Da, dar numai fișiere audio, nu și modele sau scripturi.",
-            "Nu, toate activele încărcate de utilizatori devin automat gratuite."
+            "Da, după ce cumperi o resursă grafică din aceeași categorie cu pachetul pe care îl publici.",
+            "Da, poți publica resurse proprii ca publisher dacă pachetul respectă cerințele magazinului.",
+            "Da, dar numai ca parte dintr-un șablon de joc complet, fără pachete grafice separate.",
+            "Da, dacă ai un abonament Pro activ pe toată durata listării pachetului."
         ]
     },
 
@@ -232,67 +237,67 @@ QUESTIONS_DB = [
         "curs": "Cursul 4",
         "tip": "Quiz",
         "q": "1. Adevărat sau fals: Puteți face peșteri din teren Unity.",
-        "correct": "Fals, terenul Unității nu se poate suprapune.",
+        "correct": "Fals. Prin sculptarea hărții de înălțime din curs obții o singură cotă pentru fiecare punct de pe teren.",
         "options": [
-            "Fals, terenul Unității nu se poate suprapune.",
-            "Adevărat, folosind peria de săpare orizontală.",
-            "Adevărat, terenul Unity permite goluri subterane native.",
-            "Fals, deoarece terenul Unity nu poate fi modificat pe înălțime."
+            "Adevărat. Prin sculptarea hărții de înălțime poți îndoi suprafața până când aceasta se suprapune.",
+            "Fals. Prin sculptarea hărții de înălțime poți modifica textura, însă cotele terenului rămân fixe.",
+            "Fals. Prin sculptarea hărții de înălțime din curs obții o singură cotă pentru fiecare punct de pe teren.",
+            "Adevărat. Prin sculptarea hărții de înălțime poți crea un plafon și o podea deasupra aceluiași punct."
         ]
     },
     {
         "curs": "Cursul 4",
         "tip": "Quiz",
         "q": "2. Cum se numește o imagine în tonuri de gri care conține informații despre altitudinea terenului?",
-        "correct": "O hartă a înălțimii (Heightmap).",
+        "correct": "Hartă de înălțime (Heightmap)",
         "options": [
-            "O hartă a înălțimii (Heightmap).",
-            "Un Skybox.",
-            "Un Culling Mask.",
-            "Un RigidBody."
+            "Hartă de opacitate (Opacity Map)",
+            "Hartă de normale (Normal Map)",
+            "Hartă de rugozitate (Roughness Map)",
+            "Hartă de înălțime (Heightmap)"
         ]
     },
     {
         "curs": "Cursul 4",
         "tip": "Quiz",
         "q": "3. Adevărat sau fals: Sculptura terenului în Unity este foarte mult ca pictura.",
-        "correct": "Adevărat.",
-        "options": ["Adevărat.", "Fals."]
+        "correct": "Adevărat",
+        "options": ["Adevărat", "Fals"]
     },
     {
         "curs": "Cursul 4",
         "tip": "Quiz",
         "q": "4. Cum accesați texturile de teren disponibile ale Unity?",
-        "correct": "Importați activele terenului mergând la Active > Import Pachet > Active teren.",
+        "correct": "În versiunea din curs, imporți Terrain Assets din Assets > Import Package.",
         "options": [
-            "Importați activele terenului mergând la Active > Import Pachet > Active teren.",
-            "Mergând la File > Build Settings > Terrain.",
-            "Din fereastra Game > Add Texture.",
-            "Apăsând tasta F12 în timpul rulării jocului."
+            "În versiunea din curs, imporți Terrain Assets din Assets > Import Package.",
+            "În versiunea din curs, descarci texturile din Window > Lighting > Environment.",
+            "În versiunea din curs, alegi texturile standard din Assets > Create > Terrain.",
+            "În versiunea din curs, generezi texturile standard din Terrain > Paint Details."
         ]
     },
     {
         "curs": "Cursul 4",
         "tip": "Q&A",
         "q": "Q&A: Jocul meu trebuie să aibă teren?",
-        "correct": "Deloc. Multe jocuri au loc în întregime în interiorul camerelor modelate sau în spații abstracte.",
+        "correct": "Poți construi scena din modele și folosi Terrain când ai nevoie de relief.",
         "options": [
-            "Deloc. Multe jocuri au loc în întregime în interiorul camerelor modelate sau în spații abstracte.",
-            "Da, o scenă Unity nu poate rula fără un obiect Terrain.",
-            "Da, altfel personajele nu pot fi adăugate în Hierarchy.",
-            "Doar jocurile 2D au nevoie obligatoriu de un obiect Terrain 3D."
+            "Poți construi scena din modele și folosi Terrain când ai nevoie de relief.",
+            "Adaugi Terrain în orice scenă cu perspectivă, pentru a stabili planul orizontului.",
+            "Adaugi Terrain chiar și sub podelele modelate, pentru ca acestea să permită coliziuni.",
+            "Poți omite Terrain în 2D, dar în 3D el stabilește originea scenei."
         ]
     },
     {
         "curs": "Cursul 4",
         "tip": "Q&A",
         "q": "Q&A: Terenul meu nu arată prea bine. E normal?",
-        "correct": "Da, este nevoie de timp și practică pentru a construi competență cu instrumentele de sculptură și testarea nivelului.",
+        "correct": "Da. Rezultatul se îmbunătățește exersând cu pensulele și testând nivelul în joc.",
         "options": [
-            "Da, este nevoie de timp și practică pentru a construi competență cu instrumentele de sculptură și testarea nivelului.",
-            "Nu, înseamnă că placa video este defectă.",
-            "Nu, terenul ar trebui să se genereze fotorealist singur fără intervenție.",
-            "Da, deoarece Unity nu suportă aplicarea texturilor pe teren."
+            "Nu. Forma este finalizată automat când treci din Scene în Game.",
+            "Nu. Dacă forma este neregulată, trebuie să o refaci într-un editor 3D înainte de testare.",
+            "Da. Rezultatul se corectează prin creșterea rezoluției, fără să mai ajustezi forma.",
+            "Da. Rezultatul se îmbunătățește exersând cu pensulele și testând nivelul în joc."
         ]
     },
 
@@ -301,74 +306,84 @@ QUESTIONS_DB = [
         "curs": "Cursul 5",
         "tip": "Quiz",
         "q": "1. Ce setare controlează cât de mult copacii se leagănă în vânt?",
-        "correct": "Aceasta este o întrebare truc. Copacii nu se balansează în vânt, iarba o face. Setarea care îl controlează este Bending (under Wind Settings).",
+        "correct": "În configurația din curs, Bending controlează iarba, iar copacii folosiți acolo rămân statici.",
         "options": [
-            "Aceasta este o întrebare truc. Copacii nu se balansează în vânt, iarba o face. Setarea care îl controlează este Bending (under Wind Settings).",
-            "Setarea Tree Sway Speed din fereastra Lighting.",
-            "Proprietatea Culling Mask a camerei.",
-            "Setarea Gravity din Physics Manager."
+            "În configurația din curs, Bending controlează copacii, iar iarba rămâne statică.",
+            "În configurația din curs, Wind Speed controlează amplitudinea copacilor, iar Bending controlează viteza lor.",
+            "În configurația din curs, Bending controlează iarba, iar copacii folosiți acolo rămân statici.",
+            "În configurația din curs, Wind Speed controlează amplitudinea copacilor, iar Bending controlează culoarea ierbii."
         ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Quiz",
         "q": "2. Care este numele efectului ambiental care poate simula ceața sau decolorarea culorilor la distanță?",
-        "correct": "Ceață. Fog",
-        "options": ["Ceață. Fog", "Skybox", "Heightmap", "Flythrough"]
+        "correct": "Ceață (Fog)",
+        "options": [
+            "Ceață (Fog)",
+            "Expunere (Exposure)",
+            "Ocluzie ambientală (Ambient Occlusion)",
+            "Iluminare ambientală (Ambient Lighting)"
+        ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Quiz",
         "q": "3. Acest obiect este un cub care se potrivește în jurul lumii dumneavoastră și este texturat pentru a arăta ca un cer.",
-        "correct": "Un skybox.",
-        "options": ["Un skybox.", "Un terrain.", "O lumină direcțională.", "Un shader."]
+        "correct": "Skybox",
+        "options": [
+            "Proiecție panoramică pe un plan",
+            "Skybox",
+            "Volum de ceață (Fog Volume)",
+            "Volum de reflexie (Reflection Probe)"
+        ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Quiz",
         "q": "4. Ce controler de caractere ai adăuga la scena ta: Prima persoană sau a treia persoană?",
-        "correct": "Prima persoană.",
+        "correct": "Pentru exercițiul din curs, controler la prima persoană, cu vedere din poziția personajului.",
         "options": [
-            "Prima persoană.",
-            "A treia persoană.",
-            "Niciunul, controlerele nu funcționează pe teren.",
-            "Controlerul 2D ortografic."
+            "Pentru exercițiul din curs, controler cu vedere de sus, cu camera orientată către sol.",
+            "Pentru exercițiul din curs, controler la persoana a treia, cu vedere din spatele personajului.",
+            "Pentru exercițiul din curs, controler la prima persoană, cu vedere din poziția personajului.",
+            "Pentru exercițiul din curs, controler lateral, cu deplasare într-un singur plan."
         ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Q&A",
         "q": "Q&A: Copacii și iarba au un impact semnificativ asupra performanței?",
-        "correct": "Depinde cât de mult aveți pe scenă deodată și de puterea computerului. Folosiți-le acolo unde au impact pozitiv asupra scenei.",
+        "correct": "Impactul depinde de cantitatea de vegetație randată și de puterea dispozitivului.",
         "options": [
-            "Depinde cât de mult aveți pe scenă deodată și de puterea computerului. Folosiți-le acolo unde au impact pozitiv asupra scenei.",
-            "Nu, poți pune milioane de copaci fără niciun impact asupra performanței.",
-            "Da, un singur copac blochează complet orice calculator.",
-            "Iarba crește viteza de rulare a jocului cu 50%."
+            "Impactul depinde de cantitatea de vegetație randată și de puterea dispozitivului.",
+            "Impactul crește cu distanța de vizualizare, la același cost pentru orice complexitate a modelelor.",
+            "Impactul crește cu numărul de modele distincte, iar copiile unui model au cost zero.",
+            "Impactul crește cu suprafața terenului, la același cost pentru orice densitate de vegetație."
         ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Q&A",
         "q": "Q&A: Pot să-mi fac propriile skybox-uri?",
-        "correct": "Ba da, poți. Este util mai ales dacă construiești o lume personalizată cu detalii specifice.",
+        "correct": "Da, poți aplica texturi proprii unui material care folosește un shader de skybox.",
         "options": [
-            "Ba da, poți. Este util mai ales dacă construiești o lume personalizată cu detalii specifice.",
-            "Nu, skybox-urile sunt codate fix în motorul Unity și nu pot fi schimbate.",
-            "Doar dacă rescrii codul sursă al sistemului de operare.",
-            "Nu, Unity acceptă doar fundal negru."
+            "Da, dacă rescrii texturile unui skybox inclus, deoarece materialele de skybox au texturi fixe.",
+            "Da, dacă generezi texturile în timpul rulării, fiindcă skybox-ul respinge imaginile importate.",
+            "Da, dacă pornești de la un skybox oficial, obligatoriu pentru orice material de skybox nou.",
+            "Da, poți aplica texturi proprii unui material care folosește un shader de skybox."
         ]
     },
     {
         "curs": "Cursul 5",
         "tip": "Q&A",
         "q": "Q&A: Există o mulțime de proprietăți pentru controlerul de caractere. Va trebui să le cunosc pe toate?",
-        "correct": "Nu chiar. Controlerele de caractere sunt ușor de utilizat așa cum sunt; modificările nu sunt necesare pentru majoritatea utilizărilor.",
+        "correct": "Începi cu valorile implicite și ajustezi proprietățile relevante când comportamentul o cere.",
         "options": [
-            "Nu chiar. Controlerele de caractere sunt ușor de utilizat așa cum sunt; modificările nu sunt necesare pentru majoritatea utilizărilor.",
-            "Da, trebuie modificate toate la fiecare cadru din cod.",
-            "Da, altfel controlerul se șterge automat din scenă.",
-            "Nu, deoarece controlerul de caractere nu are nicio proprietate."
+            "Ajustezi toate proprietățile împreună, fiindcă ele trebuie să păstreze aceleași proporții.",
+            "Configurezi toate proprietățile înainte de test, fiindcă valorile implicite sunt doar pentru afișare.",
+            "Înveți doar înălțimea și raza capsulei, fiindcă restul setărilor nu influențează deplasarea.",
+            "Începi cu valorile implicite și ajustezi proprietățile relevante când comportamentul o cere."
         ]
     },
 
@@ -377,67 +392,67 @@ QUESTIONS_DB = [
         "curs": "Cursul 6",
         "tip": "Quiz",
         "q": "1. Dacă doriți să iluminați o întreagă scenă cu o singură lumină, ce tip ar trebui să utilizați?",
-        "correct": "O lumină direcțională este singura lumină care este aplicată uniform pe o scenă întreagă.",
+        "correct": "Lumină direcțională (Directional Light)",
         "options": [
-            "O lumină direcțională este singura lumină care este aplicată uniform pe o scenă întreagă.",
-            "O lumină de tip Spot (reflector).",
-            "O lumină punctuală (Point Light) cu rază 1.",
-            "Nu este posibilă iluminarea unei scene cu o singură lumină."
+            "Lumină direcțională (Directional Light)",
+            "Lumină punctuală (Point Light)",
+            "Lumină de arie (Area Light)",
+            "Lumină conică (Spot Light)"
         ]
     },
     {
         "curs": "Cursul 6",
         "tip": "Quiz",
         "q": "2. Câte camere pot fi adăugate la o scenă?",
-        "correct": "Puteți avea cât mai multe doriți.",
+        "correct": "Oricâte, fără o limită fixă de camere pe scenă.",
         "options": [
-            "Puteți avea cât mai multe doriți.",
-            "Doar o singură cameră.",
-            "Maximum două camere (una 2D și una 3D).",
-            "Maximum 4 camere."
+            "O singură cameră în scenă, cu mai multe moduri de proiecție.",
+            "O singură cameră activă pentru fiecare strat al scenei.",
+            "Oricâte, fără o limită fixă de camere pe scenă.",
+            "Câte o cameră pentru fiecare afișaj configurat."
         ]
     },
     {
         "curs": "Cursul 6",
         "tip": "Quiz",
         "q": "3. Câte straturi (layers) definite de utilizator puteți avea?",
-        "correct": "24.",
-        "options": ["24.", "8.", "16.", "100."]
+        "correct": "24 (în versiunea din curs)",
+        "options": [
+            "24 (în versiunea din curs)",
+            "8 (în versiunea din curs)",
+            "32 (în versiunea din curs)",
+            "16 (în versiunea din curs)"
+        ]
     },
     {
         "curs": "Cursul 6",
         "tip": "Quiz",
         "q": "4. Ce proprietate determină ce straturi sunt ignorate de lumini și camere?",
-        "correct": "Proprietatea Culling Mask.",
-        "options": [
-            "Proprietatea Culling Mask.",
-            "Proprietatea Field of View.",
-            "Proprietatea Transform Position.",
-            "Proprietatea Wind Bending."
-        ]
+        "correct": "Culling Mask",
+        "options": ["Layer Overrides", "Culling Mask", "Occlusion Culling", "Rendering Layer Mask"]
     },
     {
         "curs": "Cursul 6",
         "tip": "Q&A",
         "q": "Q&A: Am observat că am sărit peste lightmapping (lumină). E important să înveți?",
-        "correct": "Lightmapping este o tehnică utilă pentru optimizarea performanței unei scene, dar este un subiect mai avansat pentru proiecte viitoare.",
+        "correct": "Este util pentru iluminarea precalculată, iar studiul lui poate aștepta până când proiectul are nevoie de ea.",
         "options": [
-            "Lightmapping este o tehnică utilă pentru optimizarea performanței unei scene, dar este un subiect mai avansat pentru proiecte viitoare.",
-            "Nu, lightmapping-ul nu are nicio legătură cu iluminarea sau performanța.",
-            "Este obligatoriu chiar și pentru un proiect gol, altfel Unity nu pornește.",
-            "Lightmapping-ul este folosit doar pentru reglarea volumului audio."
+            "Este necesar înainte de a folosi materiale, fiindcă lightmap-ul stabilește culorile tuturor texturilor.",
+            "Este util pentru iluminarea precalculată, iar studiul lui poate aștepta până când proiectul are nevoie de ea.",
+            "Este util mai ales pentru luminile care se mișcă, fiindcă le recalculează umbrele la fiecare cadru.",
+            "Este necesar înainte de prima scenă 3D, fiindcă nicio lumină nu poate fi afișată fără lightmap."
         ]
     },
     {
         "curs": "Cursul 6",
         "tip": "Q&A",
         "q": "Q&A: Cum știu dacă vreau o cameră de perspectivă sau ortografică?",
-        "correct": "Regula generală este că doriți perspectivă pentru jocuri și efecte 3D și ortografică pentru jocuri și efecte 2D.",
+        "correct": "Folosești de obicei perspectiva pentru profunzime în 3D și proiecția ortografică pentru un aspect 2D.",
         "options": [
-            "Regula generală este că doriți perspectivă pentru jocuri și efecte 3D și ortografică pentru jocuri și efecte 2D.",
-            "Ortografică pentru jocuri 3D FPS și perspectivă doar pentru meniuri 2D.",
-            "Nu există nicio diferență vizuală între ele.",
-            "Camera ortografică redă doar sunetul, nu și imaginea."
+            "Alegi proiecția în funcție de numărul de camere, fiindcă perspectiva se poate folosi pe o singură cameră.",
+            "Folosești de obicei perspectiva pentru a păstra dimensiunile la distanță și proiecția ortografică pentru profunzime.",
+            "Alegi proiecția în funcție de formatul texturilor, fiindcă imaginile 2D cer o cameră ortografică.",
+            "Folosești de obicei perspectiva pentru profunzime în 3D și proiecția ortografică pentru un aspect 2D."
         ]
     },
 
@@ -446,81 +461,86 @@ QUESTIONS_DB = [
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "1. Cu care trei limbaje vă permite Unity să programați (conform cursului)?",
-        "correct": "C#, JavaScript și Boo.",
+        "correct": "C#, JavaScript (UnityScript), Boo",
         "options": [
-            "C#, JavaScript și Boo.",
-            "C++, Python și Java.",
-            "PHP, Ruby și Swift.",
-            "HTML, CSS și SQL."
+            "C#, JavaScript (UnityScript), Python",
+            "C#, Java, Boo",
+            "C++, JavaScript (UnityScript), Boo",
+            "C#, JavaScript (UnityScript), Boo"
         ]
     },
     {
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "2. Adevărat sau Fals: Codul din metoda Start se execută la începutul fiecărui cadru.",
-        "correct": "Fals. Metoda Start se execută la începutul scenei. Metoda Actualizare (Update) execută fiecare cadru.",
+        "correct": "Fals. Start se apelează o dată înainte de primul Update al componentei.",
         "options": [
-            "Fals. Metoda Start se execută la începutul scenei. Metoda Actualizare (Update) execută fiecare cadru.",
-            "Adevărat. Metoda Start se apelează de 60 de ori pe secundă.",
-            "Fals. Metoda Start se execută doar când jucătorul închide aplicația.",
-            "Adevărat, iar metoda Update se execută doar o singură dată la pornire."
+            "Adevărat. Start se apelează în fiecare cadru de fizică, înainte de FixedUpdate.",
+            "Fals. Start se apelează de fiecare dată când componenta este reactivată.",
+            "Adevărat. Start se apelează înainte de fiecare Update al componentei.",
+            "Fals. Start se apelează o dată înainte de primul Update al componentei."
         ]
     },
     {
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "3. Ce tip de variabilă este tipul implicit de număr în virgulă mobilă din Unity?",
-        "correct": "Float",
-        "options": ["Float", "Int", "Bool", "String"]
+        "correct": "float (System.Single)",
+        "options": [
+            "int (System.Int32)",
+            "double (System.Double)",
+            "decimal (System.Decimal)",
+            "float (System.Single)"
+        ]
     },
     {
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "4. Care operator returnează restul împărțirii întregi?",
-        "correct": "Modulul",
-        "options": ["Modulul", "Adunarea", "Înmulțirea", "Asignarea"]
+        "correct": "Operatorul %",
+        "options": ["Operatorul /", "Operatorul &", "Operatorul %", "Operatorul *"]
     },
     {
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "5. Ce este o declarație condiționată?",
-        "correct": "O structură de cod care permite computerului să aleagă o cale de cod bazată pe o decizie simplă.",
+        "correct": "O structură care alege ce bloc de cod se execută în funcție de rezultatul unui test.",
         "options": [
-            "O structură de cod care permite computerului să aleagă o cale de cod bazată pe o decizie simplă.",
-            "O variabilă care stochează exclusiv numere întregi.",
-            "Un fișier model 3D importat în scenă.",
-            "O buclă care blochează execuția jocului."
+            "O structură care permite unei metode să transmită o valoare către apelant.",
+            "O structură care grupează instrucțiuni într-un bloc ce poate fi apelat după nume.",
+            "O structură care alege ce bloc de cod se execută în funcție de rezultatul unui test.",
+            "O structură care repetă un bloc de cod pentru un număr prestabilit de iterații."
         ]
     },
     {
         "curs": "Cursul 7",
         "tip": "Quiz",
         "q": "6. Care tip de buclă este cel mai potrivit pentru numărare?",
-        "correct": "For",
-        "options": ["For", "If", "Switch", "Float"]
+        "correct": "for",
+        "options": ["for", "foreach", "do ... while", "while"]
     },
     {
         "curs": "Cursul 7",
         "tip": "Q&A",
         "q": "Q&A: Cât de multă programare este necesară pentru a face un joc?",
-        "correct": "Cele mai multe jocuri folosesc programare pentru comportamente complexe; cu cât comportamentele sunt mai complexe, cu atât programarea e mai complexă.",
+        "correct": "Volumul de programare depinde în principal de complexitatea comportamentelor jocului.",
         "options": [
-            "Cele mai multe jocuri folosesc programare pentru comportamente complexe; cu cât comportamentele sunt mai complexe, cu atât programarea e mai complexă.",
-            "Deloc, niciun joc comercial nu folosește programare.",
-            "Programarea este folosită doar pentru desenarea texturilor în Paint.",
-            "Comportamentele complexe necesită mai puțină programare decât cele simple."
+            "Volumul de programare este stabilit la crearea proiectului, prin alegerea șablonului.",
+            "Volumul de programare depinde în principal de complexitatea comportamentelor jocului.",
+            "Volumul de programare este aproximativ același pentru orice joc care are tot atâtea scene.",
+            "Volumul de programare depinde în principal de numărul de modele pe care le imporți."
         ]
     },
     {
         "curs": "Cursul 7",
         "tip": "Q&A",
         "q": "Q&A: Asta e tot ce ține de scripting (scenariu)?",
-        "correct": "Da și nu. Sunt prezentate blocurile fundamentale de programare care nu se schimbă niciodată, ci doar se aplică în moduri noi și unice.",
+        "correct": "Capitolul prezintă structurile de bază, pe care le poți combina pentru a construi comportamente mai complexe.",
         "options": [
-            "Da și nu. Sunt prezentate blocurile fundamentale de programare care nu se schimbă niciodată, ci doar se aplică în moduri noi și unice.",
-            "Da, nu mai există niciun alt concept în programare în afară de variabila float.",
-            "Nu, blocurile fundamentale se schimbă complet în fiecare săptămână.",
-            "Scriptingul nu poate fi folosit în Unity."
+            "Capitolul prezintă toate metodele motorului, care pot fi aplicate direct în orice proiect.",
+            "Capitolul prezintă comenzi valabile doar pentru exemplul său, care trebuie înlocuite în alte proiecte.",
+            "Capitolul prezintă structurile de bază, pe care le poți combina pentru a construi comportamente mai complexe.",
+            "Capitolul prezintă întreaga sintaxă, iar mecanicile noi cer doar schimbarea valorilor din Inspector."
         ]
     },
 
@@ -529,83 +549,82 @@ QUESTIONS_DB = [
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Quiz",
         "q": "1. Adevărat sau Fals: Metodele pot fi, de asemenea, menționate ca funcții.",
-        "correct": "Adevărat.",
-        "options": ["Adevărat.", "Fals."]
+        "correct": "Adevărat",
+        "options": ["Adevărat", "Fals"]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Quiz",
         "q": "2. Adevărat sau Fals: Nu fiecare metodă are un tip de returnare.",
-        "correct": "Fals. Fiecare metodă returnează un tip. Dacă metoda nu returnează nimic, tipul este nul (void).",
+        "correct": "Fals. O metodă declară un tip de returnare, inclusiv void când nu întoarce o valoare.",
         "options": [
-            "Fals. Fiecare metodă returnează un tip. Dacă metoda nu returnează nimic, tipul este nul (void).",
-            "Adevărat. Doar metoda Start are tip de returnare.",
-            "Adevărat. Metodele nu pot returna niciodată valori.",
-            "Fals. Toate metodele returnează obligatoriu un float."
+            "Fals. O metodă fără rezultat declară tipul null în locul unui tip concret.",
+            "Fals. O metodă declară un tip de returnare, inclusiv void când nu întoarce o valoare.",
+            "Adevărat. O metodă poate omite tipul de returnare dacă are o instrucțiune return.",
+            "Adevărat. O metodă fără parametri poate omite tipul de returnare din declarație."
         ]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Quiz",
         "q": "3. De ce este un lucru rău să mapați interacțiunile jucătorului la butoane specifice?",
-        "correct": "Jucătorii vor avea un timp mult mai greu la remapping pentru preferințele lor. Prin maparea la axe generice, butoanele se pot modifica ușor.",
+        "correct": "Legarea directă de o tastă îngreunează remaparea. O acțiune poate primi altă tastă fără să schimbi logica jocului.",
         "options": [
-            "Jucătorii vor avea un timp mult mai greu la remapping pentru preferințele lor. Prin maparea la axe generice, butoanele se pot modifica ușor.",
-            "Deoarece butoanele specifice șterg scena curentă la apăsare.",
-            "Deoarece tastatura nu este suportată în Unity pe PC.",
-            "Deoarece maparea la butoane specifice dezactivează iluminarea scenei."
+            "Legarea directă de o tastă activează repetarea. O acțiune trimite întotdeauna un singur eveniment per apăsare.",
+            "Legarea directă de o tastă îngreunează remaparea. O acțiune poate primi altă tastă fără să schimbi logica jocului.",
+            "Legarea directă de o tastă schimbă frecvența citirii. O acțiune se citește la o rată fixă, indiferent de cadru.",
+            "Legarea directă de o tastă schimbă durata apăsării. O acțiune transformă automat orice apăsare într-una scurtă."
         ]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Quiz",
         "q": "4. Cubul a fost translatat de-a lungul axei X pozitive și rotit de-a lungul axei Z, deplasându-se într-un cerc mare. De ce?",
-        "correct": "Transformările au loc pe sistemul local de coordonate. Cubul s-a mutat pe axa X pozitivă, dar direcția axei față de cameră a continuat să se schimbe.",
+        "correct": "Deplasarea urmărește axa X locală, care își schimbă direcția după fiecare rotație pe Z.",
         "options": [
-            "Transformările au loc pe sistemul local de coordonate. Cubul s-a mutat pe axa X pozitivă, dar direcția axei față de cameră a continuat să se schimbe.",
-            "Deoarece cuburile în Unity se pot mișca doar în cerc, niciodată în linie dreaptă.",
-            "Deoarece camera se rotea în jurul cubului, iar cubul era complet static.",
-            "Deoarece axa X pozitivă este întotdeauna o linie curbă în geometria 3D."
+            "Deplasarea urmărește axa X globală, iar rotația cubului mută automat poziția în jurul originii scenei.",
+            "Deplasarea urmărește axa X locală, care își schimbă direcția după fiecare rotație pe Z.",
+            "Deplasarea urmărește axa X globală, care își schimbă direcția când cubul se rotește pe Z.",
+            "Deplasarea urmărește axa X locală, care rămâne fixă deoarece rotația este pe altă axă."
         ]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Q&A",
         "q": "Q&A: Câte metode ar trebui să scriu?",
-        "correct": "O metodă ar trebui să fie o funcție unică, concisă. Atâta timp cât fiecare proces are propria metodă specifică, aveți suficient.",
+        "correct": "Scrii atâtea metode câte sunt necesare pentru a separa responsabilitățile în operații clare.",
         "options": [
-            "O metodă ar trebui să fie o funcție unică, concisă. Atâta timp cât fiecare proces are propria metodă specifică, aveți suficient.",
-            "Tot codul jocului trebuie scris într-o singură metodă uriașă.",
-            "Nu aveți voie să scrieți mai mult de două metode pe proiect.",
-            "Câte o metodă pentru fiecare literă din alfabet."
+            "Scrii câte o metodă pentru fiecare eveniment Unity, chiar dacă evenimentul nu este folosit.",
+            "Scrii câte o metodă pentru fiecare tip de rezultat, grupând toate operațiile cu același tip.",
+            "Scrii atâtea metode câte sunt necesare pentru a separa responsabilitățile în operații clare.",
+            "Scrii câte o metodă pentru fiecare variabilă, chiar dacă variabilele țin de aceeași operație."
         ]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Q&A",
         "q": "Q&A: De ce nu aflăm mai multe despre gamepad-uri în acest capitol?",
-        "correct": "Toate gamepad-urile diferă și sistemele de operare le tratează diferit, deci nu ar permite o experiență constantă cititorului (plus nu toată lumea are gamepad).",
+        "correct": "Modelele de gamepad, sistemele de operare și disponibilitatea dispozitivelor fac exercițiul greu de reprodus.",
         "options": [
-            "Toate gamepad-urile diferă și sistemele de operare le tratează diferit, deci nu ar permite o experiență constantă cititorului (plus nu toată lumea are gamepad).",
-            "Deoarece Unity nu suportă niciun fel de gamepad sau controller.",
-            "Deoarece gamepad-urile pot fi folosite doar pentru editarea modelelor 3D.",
-            "Deoarece gamepad-urile funcționează doar cu camera ortografică."
+            "Axa fiecărui gamepad trebuie asociată unui obiect din scenă înainte de a fi citită dintr-un script.",
+            "Maparea unui gamepad blochează intrările de la tastatură, ceea ce ar schimba exercițiile capitolului.",
+            "Modelele de gamepad, sistemele de operare și disponibilitatea dispozitivelor fac exercițiul greu de reprodus.",
+            "Semnalul de la gamepad poate fi citit doar după export, ceea ce împiedică testarea din editor."
         ]
     },
     {
         "curs": "Cursul 8 (Cap. 7.2)",
         "tip": "Q&A",
         "q": "Q&A: Fiecare componentă poate fi editată prin script?",
-        "correct": "Da, cel puțin toate cele încorporate.",
+        "correct": "Poți modifica proprietățile pe care componenta le expune pentru scriere prin API-ul său.",
         "options": [
-            "Da, cel puțin toate cele încorporate.",
-            "Nu, scripturile nu au acces la nicio componentă din Unity.",
-            "Doar componenta Transform poate fi accesată, restul sunt blocate.",
-            "Nu, componentele pot fi modificate exclusiv manual cu jocul oprit."
+            "Poți modifica doar componentele personalizate, fiindcă cele încorporate sunt accesibile doar pentru citire.",
+            "Poți modifica proprietățile pe care componenta le expune pentru scriere prin API-ul său.",
+            "Poți modifica doar câmpurile serializate, fiindcă proprietățile neserializate sunt inaccesibile la rulare.",
+            "Poți modifica orice proprietate vizibilă în Inspector, fiindcă afișarea ei garantează accesul din script."
         ]
     }
 ]
-
 
 class QuizApp:
     def __init__(self, root):
